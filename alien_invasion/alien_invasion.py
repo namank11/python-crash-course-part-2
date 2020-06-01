@@ -169,7 +169,6 @@ class AlienInvasion:
     def _create_alien(self, alien_numbers, rows):
         alien = Alien(self)
         alien_width, alien_height = alien.rect.size
-        alien.rect.x = alien.x
         alien.rect.x = alien.x = alien_width + 2 * alien_width * alien_numbers
         alien.rect.y = alien.rect.height + 2 * alien_height * rows
         self.aliens.add(alien)
