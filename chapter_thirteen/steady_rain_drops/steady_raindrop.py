@@ -11,7 +11,7 @@ class SteadyRaindrop(Sprite):
         self.screen_rect = self.screen.get_rect()
         self.image = pygame.image.load("images/transparent-raindrops-2-original.bmp")
         self.rect = self.image.get_rect()
-        self.drop_speed = 1
+        self.drop_speed = 0.5
         self.rect.x = self.rect.width
         self.rect.y = self.rect.height
 
