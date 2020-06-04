@@ -112,6 +112,13 @@ class SidewaysShooterPartTwo:
         self.aliens.draw(self.screen)
         self._check_fleet_edges()
         self.aliens.update()
+        if pygame.sprite.spritecollideany(self.ship, self.aliens):
+            print("Ship Destroyed!")
+            self.settings.ships_left -= self.settings.ships_left
+            self.aliens.empty()
+            self.bullets.empty()
+            self._create_fleet()
+            self.ship.center_ship()
         self.ship.update_movement()
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()

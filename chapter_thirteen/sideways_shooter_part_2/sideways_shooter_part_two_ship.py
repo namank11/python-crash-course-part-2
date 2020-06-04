@@ -32,5 +32,12 @@ class Ship(Sprite):
 
         self.rect.y = self.yfloat
 
+    def center_ship(self):
+
+        # placing the ship at the original position after the game restarts
+
+        self.rect.midright = self.screen_rect.midright
+        self.x = float(self.rect.x)
+
     def blitme(self):
         self.screen.blit(self.image, self.rect)
