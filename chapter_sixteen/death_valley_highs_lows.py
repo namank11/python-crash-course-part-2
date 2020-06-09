@@ -4,7 +4,7 @@ from datetime import datetime
 
 import matplotlib.pyplot as plt
 
-file_name = 'data/death_valley_2018_simple.csv'
+file_name = 'data_csv/death_valley_2018_simple.csv'
 with open(file_name) as f:
     reader = csv.reader(f)
     header_row = next(reader)
@@ -13,8 +13,8 @@ with open(file_name) as f:
     lows = []
     for row in reader:
         try:
-            high = int(row[4])
-            low = int(row[5])
+            high = int(row[5])
+            low = int(row[6])
             current_date = datetime.strptime(row[2], '%Y-%m-%d')
         except ValueError:
             print(f'Missing data for {current_date}')

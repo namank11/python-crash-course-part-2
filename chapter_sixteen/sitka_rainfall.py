@@ -8,29 +8,26 @@ file_name = 'data_csv/sitka_weather_2018_simple.csv'
 with open(file_name) as f:
     reader = csv.reader(f)
     header_row = next(reader)
-    highs = []
+    rains = []
     dates = []
-    lows = []
+    for index, row in enumerate(header_row):
+        print(index, row)
     for row in reader:
         try:
-            high = int(row[5])
-            low = int(row[6])
+            rain = float(row[5])
             current_date = datetime.strptime(row[2], '%Y-%m-%d')
         except ValueError:
             print(f'Missing data for {current_date}')
         else:
-            highs.append(high)
+            rains.append(rain)
             dates.append(current_date)
-            lows.append(low)
 
 plt.style.use('seaborn')
 fig, ax = plt.subplots()
-ax.plot(dates, highs, c='red', alpha=0.5)
-ax.plot(dates, lows, c='green', alpha=0.5)
-plt.fill_between(dates, highs, lows, facecolor='blue', alpha=0.1)
-plt.title('Daily high and low Temperature of Sitika')
+ax.plot(dates, rains, c='red')
+plt.title('Rainfall of SITKA')
 plt.xlabel('Dates')
 fig.autofmt_xdate()
-plt.ylabel('Temperature')
+plt.ylabel('Precipitation')
 plt.tick_params(axis='both', which='major')
 plt.show()
