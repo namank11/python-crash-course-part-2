@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 file_name_sitka = 'data_csv/sitka_weather_2018_simple.csv'
 file_name_death_valley = 'data_csv/death_valley_2018_simple.csv'
 file_name_san_francisco = 'data_csv/2176317.csv'
+
+
 def get_data(file_name, dates, highs, lows):
     with open(file_name) as f:
         reader = csv.reader(f)
@@ -30,6 +32,7 @@ def get_data(file_name, dates, highs, lows):
                 highs.append(high)
                 dates.append(current_date)
                 lows.append(low)
+
 
 plt.style.use('seaborn')
 fig, ax = plt.subplots()
